@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+    <title>Lesson 01</title>
+</head>
+
+<body ng-controller="ApplicationController as vm">
+
+    <h1>{{vm.message}}</h1>
+
+    <h2>Welcome {{vm.name}}</h2>
+    <label>
+        Enter your name: <input type="text" ng-model="vm.name">
+    </label>
+
+    <script src="lib/angular/angular.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

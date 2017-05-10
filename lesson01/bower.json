@@ -1,0 +1,17 @@
+{
+  "name": "lesson01",
+  "authors": [
+    "Bryan Wood"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.4"
+  }
+}
