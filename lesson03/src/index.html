@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head ng-controller="ApplicationController as vm">
+    <title>{{vm.title}}</title>
+    <link rel="stylesheet" href="lib/angular/angular-csp.css">
+</head>
+
+<body ng-controller="ViewController as vm" ng-cloak>
+    <h1>{{vm.message}}</h1>
+    <label>
+        Filter: <input type="text" ng-model="vm.filter" ng-change="vm.filterAutos()" 
+        ng-model-options="{ 'debounce': 250 }">
+    </label>
+    <table>
+        <tbody>
+            <tr ng-repeat="auto in vm.autoViews">
+                <td>
+                    {{auto.make}}
+                </td>
+                <td>
+                    {{auto.model}}
+                </td>
+                <td>
+                    {{auto.year}}
+                </td>
+                <td>
+                    <button ng-click="vm.showIndex($index)">Show Index</button>
+                </td>
+            </tr>
+        </tbody>
+        <thead>
+            <tr>
+                <th>
+                    Make
+                </th>
+                <th>
+                    Model
+                </th>
+                <th>
+                    Year
+                </th>
+            </tr>
+        </thead>
+    </table>
+    
+    <!--/* Third Party Modules */-->
+    <script src="lib/angular/angular.min.js"></script>
+    <script src="lib/angular-resource/angular-resource.min.js"></script>
+
+    <!--/* Application Modules */-->
+    <script src="js/models/auto.model.js"></script>
+
+    <script src="js/view/view.controller.js"></script>
+    <script src="js/view/view.js"></script>
+
+    <script src="js/app.controller.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
