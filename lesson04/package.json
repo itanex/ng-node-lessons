@@ -1,0 +1,16 @@
+{
+  "name": "lesson04",
+  "version": "1.0.0",
+  "scripts": {
+    "lite": "lite-server",
+    "start": "npm run lite"
+  },
+  "author": "Bryan Wood",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/angular": "^1.6.17",
+    "@types/angular-resource": "^1.5.8",
+    "@types/angular-ui-router": "^1.1.36",
+    "lite-server": "^2.3.0"
+  }
+}
