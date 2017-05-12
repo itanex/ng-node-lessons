@@ -32,6 +32,8 @@ router.get('/', (request, response) => {
  * Get auto by ID
  */
 router.get('/:id', (request, response) => {
+    // Need to validate input for security
+    // Validation of data from user prevents SQL Injection Attacks
     let id = request.params.id;
 
     let record = autos.filter((item): boolean => {
@@ -55,6 +57,8 @@ router.get('/:id', (request, response) => {
  * Add a new auto to the list
  */
 router.post('/', (request, response) => {
+    // Need to validate input for security
+    // Validation of data from user prevents SQL Injection Attacks
     let auto = request.body;
 
     // save auto in collection
@@ -65,5 +69,64 @@ router.post('/', (request, response) => {
         .header('Location', `api/autos/${auto.id}`)
         .json(auto);
 });
+
+/**
+ * UPDATE Specific resource (crUd)
+ * 
+ * Update specific auto by ID
+ */
+router.put('/:id', (request, response) => {
+    // Need to validate input for security
+    // Validation of data from user prevents SQL Injection Attacks
+    let id = parseInt(request.params.id);
+    let auto = request.body;
+
+    let record = autos.filter((item): boolean => {
+        return item.id == id;
+    })[0];
+
+    if(record) {
+        // what makes this different than get /:id
+        record.make = auto.make;
+        record.model = auto.model;
+        record.year = auto.year;
+
+        response.status(204) // 204 - No Content
+            .end();
+    }
+
+    response.status(404)
+        .json('Auto Not Found')
+        .end();
+});
+
+
+
+/**
+ * DELETE Specific resource (cruD)
+ * 
+ * DELETE specific auto by ID
+ */
+router.delete('/:id', (request, response) => {
+    // Need to validate input for security
+    // Validation of data from user prevents SQL Injection Attacks
+    let id = request.params.id;
+
+    let record = autos.filter((item): boolean => {
+        return item.id == id;
+    })[0];
+
+    if(record) {
+        autos.splice(autos.indexOf(record), 1);
+
+        response.status(204) // 204 - No Content
+            .end();
+    }
+
+    response.status(404)
+        .json('Auto Not Found')
+        .end();
+});
+
 
 export default router;
