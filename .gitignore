@@ -2,6 +2,7 @@
 **/node_modules
 **/bower_components
 **/src/lib
+**/public/lib
 
 # Compile/Transpile Artifacts
 **/*.js
