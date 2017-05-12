@@ -6,4 +6,8 @@ After cloning be sure to run the following commands.
  $ bower i
 ```
 
-# 
+# Routing and Views
+
+## Routing
+
+## Views
