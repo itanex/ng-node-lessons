@@ -7,7 +7,7 @@ namespace Lesson04.View.Auto {
                 url: '/auto',
                 controller: 'AutoController',
                 controllerAs: 'vm',
-                templateUrl: 'js/view/auto/auto.html'
+                templateUrl: 'js/views/auto/auto.html'
             });
     }
 }

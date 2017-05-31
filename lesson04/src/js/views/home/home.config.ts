@@ -7,7 +7,7 @@ namespace Lesson04.View.Home {
                 url: '/',
                 controller: 'HomeController',
                 controllerAs: 'vm',
-                templateUrl: 'js/view/home/home.html'
+                templateUrl: 'js/views/home/home.html'
             });
     }
 }
