@@ -12,7 +12,6 @@ namespace Lesson08.View.Auto {
             $stateParams: ng.ui.IStateParamsService,
             private AutoService: Lesson08.Services.AutoService
         ) {
-            debugger;
             let id = $stateParams['id'];
 
             if (id) {
