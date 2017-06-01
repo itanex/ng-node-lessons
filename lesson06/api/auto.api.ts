@@ -4,16 +4,89 @@ let router = express.Router();
 
 let autos: any[] = [
     {
-        "id": 1,
         "make": "Subaru",
         "model": "CrossTrek",
         "year": 2014
     },
     {
-        "id": 2,
         "make": "Subaru",
         "model": "Outback",
         "year": 2017
+    },
+    {
+        "make": "Subaru",
+        "model": "Forester",
+        "year": 2008
+    },
+    {
+        "make": "Subaru",
+        "model": "Imprezza",
+        "year": 2003
+    },
+    {
+        "make": "Ford",
+        "model": "F150",
+        "year": 2012
+    },
+    {
+        "make": "Ford",
+        "model": "Festiva",
+        "year": 2001
+    },
+    {
+        "make": "Ford",
+        "model": "Pinto",
+        "year": 1982
+    },
+    {
+        "make": "Ford",
+        "model": "F10",
+        "year": 2011
+    },
+    {
+        "make": "Ford",
+        "model": "Mustang",
+        "year": 2014
+    },
+    {
+        "make": "Chevrolet",
+        "model": "Volt",
+        "year": 2014
+    },
+    {
+        "make": "Chevrolet",
+        "model": "Blazer",
+        "year": 2001
+    },
+    {
+        "make": "Chevrolet",
+        "model": "Suburban",
+        "year": 2009
+    },
+    {
+        "make": "Chevrolet",
+        "model": "Leaf",
+        "year": 2016
+    },
+    {
+        "make": "Dodge",
+        "model": "Charger",
+        "year": 2018
+    },
+    {
+        "make": "Dodge",
+        "model": "Caravan",
+        "year": 1998
+    },
+    {
+        "make": "Dodge",
+        "model": "Caravan",
+        "year": 2018
+    },
+    {
+        "make": "Dodge",
+        "model": "Charger",
+        "year": 1987
     }
 ];
 
@@ -23,7 +96,7 @@ let autos: any[] = [
  * Get all autos
  */
 router.get('/', (request, response) => {
-    response.status(200).json(autos);
+    return response.status(200).json(autos);
 });
 
 /**
@@ -41,12 +114,12 @@ router.get('/:id', (request, response) => {
     })[0];
 
     if(record) {
-        response.status(200)
+        return response.status(200)
             .json(record)
             .end();
     }
 
-    response.status(404)
+    return response.status(404)
         .json('Auto Not Found')
         .end();
 });
@@ -65,7 +138,7 @@ router.post('/', (request, response) => {
     auto.id = autos.length + 1;
     autos.push(auto);
 
-    response.status(201)
+    return response.status(201)
         .header('Location', `api/autos/${auto.id}`)
         .json(auto);
 });
@@ -91,11 +164,11 @@ router.put('/:id', (request, response) => {
         record.model = auto.model;
         record.year = auto.year;
 
-        response.status(204) // 204 - No Content
+        return response.status(204) // 204 - No Content
             .end();
     }
 
-    response.status(404)
+    return response.status(404)
         .json('Auto Not Found')
         .end();
 });
@@ -119,11 +192,11 @@ router.delete('/:id', (request, response) => {
     if(record) {
         autos.splice(autos.indexOf(record), 1);
 
-        response.status(204) // 204 - No Content
+        return response.status(204) // 204 - No Content
             .end();
     }
 
-    response.status(404)
+    return response.status(404)
         .json('Auto Not Found')
         .end();
 });
