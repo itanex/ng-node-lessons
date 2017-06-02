@@ -1,9 +1,10 @@
 import * as express from 'express';
 
 import * as Autos from '../data/auto.db';
+import { ValidateAuto } from '../utitlities/auto.validator';
+import { ValidateId } from '../utitlities/id.validator';
 
 let router = express.Router();
-
 
 /**
  * Read ALL resources (cRud)
@@ -11,7 +12,7 @@ let router = express.Router();
  * Get all autos
  */
 router.get('/', (request, response) => {
-    response.status(200).json(Autos.getAll());
+    return response.status(200).json(Autos.getAll());
 });
 
 /**
@@ -19,22 +20,18 @@ router.get('/', (request, response) => {
  * 
  * Get auto by ID
  */
-router.get('/:id', (request, response) => {
-    // Need to validate input for security
-    // Validation of data from user prevents SQL Injection Attacks
+router.get('/:id', ValidateId, (request, response) => {
     let id = request.params.id;
 
     let record = Autos.getById(id);
 
-    if(record) {
-        response.status(200)
+    if (record) {
+        return response.status(200)
             .json(record)
             .end();
-
-            return;
     }
 
-    response.status(404)
+    return response.status(404)
         .json('Auto Not Found')
         .end();
 });
@@ -44,15 +41,13 @@ router.get('/:id', (request, response) => {
  * 
  * Add a new auto to the list
  */
-router.post('/', (request, response) => {
-    // Need to validate input for security
-    // Validation of data from user prevents SQL Injection Attacks
+router.post('/', ValidateAuto, (request, response) => {
     let auto = request.body;
 
     // save auto in collection
     auto = Autos.addAuto(auto);
 
-    response.status(201)
+    return response.status(201)
         .header('Location', `api/autos/${auto.id}`)
         .json(auto);
 });
@@ -62,20 +57,16 @@ router.post('/', (request, response) => {
  * 
  * Update specific auto by ID
  */
-router.put('/:id', (request, response) => {
-    // Need to validate input for security
-    // Validation of data from user prevents SQL Injection Attacks
+router.put('/:id', ValidateId, ValidateAuto, (request, response) => {
     let id = parseInt(request.params.id);
     let auto = request.body;
 
-    if(Autos.updateAuto(id, auto)) {
-        response.status(204) // 204 - No Content
+    if (Autos.updateAuto(id, auto)) {
+        return response.status(204) // 204 - No Content
             .end();
-            
-            return;
     }
 
-    response.status(404)
+    return response.status(404)
         .json('Auto Not Found')
         .end();
 });
@@ -87,19 +78,15 @@ router.put('/:id', (request, response) => {
  * 
  * DELETE specific auto by ID
  */
-router.delete('/:id', (request, response) => {
-    // Need to validate input for security
-    // Validation of data from user prevents SQL Injection Attacks
+router.delete('/:id', ValidateId, (request, response) => {
     let id = request.params.id;
 
-    if(Autos.deleteAuto(id)) {
-        response.status(204) // 204 - No Content
+    if (Autos.deleteAuto(id)) {
+        return response.status(204) // 204 - No Content
             .end();
-            
-            return;
     }
 
-    response.status(404)
+    return response.status(404)
         .json('Auto Not Found')
         .end();
 });
