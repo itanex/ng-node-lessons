@@ -4,14 +4,13 @@ import * as Autos from '../data/auto.db';
 
 let router = express.Router();
 
-
 /**
  * Read ALL resources (cRud)
  * 
  * Get all autos
  */
 router.get('/', (request, response) => {
-    response.status(200).json(Autos.getAll());
+    return response.status(200).json(Autos.getAll());
 });
 
 /**
@@ -27,14 +26,12 @@ router.get('/:id', (request, response) => {
     let record = Autos.getById(id);
 
     if(record) {
-        response.status(200)
+        return response.status(200)
             .json(record)
             .end();
-
-            return;
     }
 
-    response.status(404)
+    return response.status(404)
         .json('Auto Not Found')
         .end();
 });
@@ -52,7 +49,7 @@ router.post('/', (request, response) => {
     // save auto in collection
     auto = Autos.addAuto(auto);
 
-    response.status(201)
+    return response.status(201)
         .header('Location', `api/autos/${auto.id}`)
         .json(auto);
 });
@@ -69,13 +66,11 @@ router.put('/:id', (request, response) => {
     let auto = request.body;
 
     if(Autos.updateAuto(id, auto)) {
-        response.status(204) // 204 - No Content
+        return response.status(204) // 204 - No Content
             .end();
-            
-            return;
     }
 
-    response.status(404)
+    return response.status(404)
         .json('Auto Not Found')
         .end();
 });
@@ -93,13 +88,11 @@ router.delete('/:id', (request, response) => {
     let id = request.params.id;
 
     if(Autos.deleteAuto(id)) {
-        response.status(204) // 204 - No Content
+        return response.status(204) // 204 - No Content
             .end();
-            
-            return;
     }
 
-    response.status(404)
+    return response.status(404)
         .json('Auto Not Found')
         .end();
 });
