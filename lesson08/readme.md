@@ -10,6 +10,8 @@ After cloning be sure to run the following commands.
 
 ## Create Record View
 1. Add a new HTML file called `create.record.html`
+
+We need to create some input fields and bind them to the controller's model and we also need some buttons bound to functions in the controller for the operations we want to do. 
 ```html
 <ul>
     <li>
@@ -30,16 +32,13 @@ After cloning be sure to run the following commands.
 2. Add a new Typescript file called `create.controller.ts`
 ```Typescript
 export class CreateRecordController {
-    public auto: Models.Auto;
+    public auto = new Models.Auto();
 
     constructor(
         private $state: ng.ui.IStateService,
-        $stateParams: ng.ui.IStateParamsService,
         private AutoService: Lesson08.Services.AutoService
     ) {
-        let id = $stateParams['id'];
-
-        this.auto = this.AutoService.getAuto(id);
+        
     }
 
     // event handlers
@@ -49,8 +48,9 @@ export class CreateRecordController {
         this.$state.go('Auto');
     }
 
+    // Move the user back to list of autos
     public cancel(): void {
-        this.$state.go('AutoRecord', { id: this.auto.id });
+        this.$state.go('Auto');
     }
 }
 ```
@@ -77,6 +77,8 @@ $stateProvider
 
 ## Edit Record View
 1. Add a new HTML file called `edit.record.html`
+
+We need to create some input fields and bind them to the controller's model and we also need some buttons bound to functions in the controller for the operations we want to do.
 ```html
 <ul>
     <li>
@@ -89,12 +91,14 @@ $stateProvider
         Year: <input type="text" ng-model="vm.auto.year">
     </li>
     <li>
-        <button ng-click="vm.create()">Create</button>
+        <button ng-click="vm.update()">Update</button>
         <button ng-click="vm.cancel()">Cancel</button>
     </li>
 </ul>
 ```
 2. Add a new Typescript file called `edit.controller.ts`
+
+We need to request the data for the auto that we are going to update, we take the ID out of the state parameters (the `/:id` in the URL). Once we have that value we can then send it to the service to get the data that we will present and work with.
 ```Typescript
 export class EditRecordController {
     public auto: Models.Auto;
@@ -116,6 +120,7 @@ export class EditRecordController {
         this.$state.go('AutoRecord', { id: this.auto.id });
     }
 
+    // go back to view of this record
     public cancel(): void {
         this.$state.go('AutoRecord', { id: this.auto.id });
     }

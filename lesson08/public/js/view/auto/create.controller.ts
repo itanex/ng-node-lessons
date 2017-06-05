@@ -1,15 +1,11 @@
 namespace Lesson08.View.Auto {
     export class CreateRecordController {
-        public auto: Models.Auto;
+        public auto = new Models.Auto();
 
         constructor(
             private $state: ng.ui.IStateService,
-            $stateParams: ng.ui.IStateParamsService,
             private AutoService: Lesson08.Services.AutoService
         ) {
-            let id = $stateParams['id'];
-
-            this.auto = this.AutoService.getAuto(id);
         }
 
         // event handlers
@@ -20,7 +16,7 @@ namespace Lesson08.View.Auto {
         }
 
         public cancel(): void {
-            this.$state.go('AutoRecord', { id: this.auto.id });
+            this.$state.go('Auto');
         }
     }
 }
