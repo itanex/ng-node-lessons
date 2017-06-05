@@ -1,0 +1,21 @@
+<form name="CarForm">
+    <div class="form-group" novalidate>
+        <label for="make">Make</label>
+        <input type="text" class="form-control" id="make" name="AutoMake" placeholder="Make" ng-model="vm.auto.make" ng-required="true">
+        <p class="help-block text-danger" ng-show="CarForm.AutoMake.$touched && CarForm.AutoMake.$error.required">Make is required</p>
+    </div>
+    <div class="form-group">
+        <label for="model">Model</label>
+        <input type="text" class="form-control" id="model" name="AutoModel" placeholder="Model" ng-model="vm.auto.modelOfCar" ng-required="true">
+        <p class="help-block text-danger" ng-show="CarForm.AutoModel.$touched && CarForm.AutoModel.$error.required">Model is required</p>
+    </div>
+    <div class="form-group">
+        <label for="year">Year</label>
+        <input type="text" class="form-control" id="year" name="AutoYear" placeholder="Year" ng-model="vm.auto.year" ng-required="true" ng-pattern="/^\d+$/">
+        <p class="help-block text-danger" ng-show="CarForm.AutoYear.$touched && CarForm.AutoYear.$error.required">Year is required</p>
+        <p class="help-block text-danger" ng-show="CarForm.AutoYear.$touched && CarForm.AutoYear.$error.pattern">Year must be a number</p>
+    </div>
+            <button ng-click="vm.create()" ng-if="vm.isCreate">Create</button>
+            <button ng-click="vm.update()" ng-if="!vm.isCreate">Update</button>
+            <button ng-click="vm.cancel()">Cancel</button>
+</form>
