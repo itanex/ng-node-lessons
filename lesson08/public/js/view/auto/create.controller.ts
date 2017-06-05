@@ -1,5 +1,5 @@
 namespace Lesson08.View.Auto {
-    export class EditRecordController {
+    export class CreateRecordController {
         public auto: Models.Auto;
 
         constructor(
@@ -14,9 +14,9 @@ namespace Lesson08.View.Auto {
 
         // event handlers
 
-        public update(): void {
-            this.AutoService.updateAuto(this.auto);
-            this.$state.go('AutoRecord', { id: this.auto.id });
+        public create(): void {
+            this.AutoService.createAuto(this.auto);
+            this.$state.go('Auto');
         }
 
         public cancel(): void {

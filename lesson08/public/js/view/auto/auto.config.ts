@@ -32,9 +32,9 @@ namespace Lesson08.View.Auto {
             })
             .state('AutoCreate', <ng.ui.IState>{
                 url: '/auto/create',
-                controller: 'EditRecordController',
+                controller: 'CreateRecordController',
                 controllerAs: 'vm',
-                templateUrl: 'js/view/auto/edit.record.html',
+                templateUrl: 'js/view/auto/create.record.html',
                 data: {
                     requiresAuthentication: true
                 }
