@@ -25,7 +25,7 @@ router.get('/:id', (request, response) => {
 
     let record = Autos.getById(id);
 
-    if(record) {
+    if (record) {
         return response.status(200)
             .json(record)
             .end();
@@ -65,7 +65,7 @@ router.put('/:id', (request, response) => {
     let id = parseInt(request.params.id);
     let auto = request.body;
 
-    if(Autos.updateAuto(id, auto)) {
+    if (Autos.updateAuto(id, auto)) {
         return response.status(204) // 204 - No Content
             .end();
     }
@@ -87,7 +87,7 @@ router.delete('/:id', (request, response) => {
     // Validation of data from user prevents SQL Injection Attacks
     let id = request.params.id;
 
-    if(Autos.deleteAuto(id)) {
+    if (Autos.deleteAuto(id)) {
         return response.status(204) // 204 - No Content
             .end();
     }
