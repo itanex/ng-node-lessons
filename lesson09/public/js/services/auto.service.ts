@@ -22,7 +22,7 @@ namespace Lesson09.Services {
             this.autoResource.save(auto);
         }
 
-        public updateAuto(auto: any): void {
+        public updateAuto(auto: Models.Auto): void {
             this.autoResource['update']({id: auto.id}, auto);
         }
 

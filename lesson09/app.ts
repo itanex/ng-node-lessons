@@ -3,8 +3,10 @@ import expressValidator = require('express-validator');
 import * as path from 'path';
 import * as bodyParser from 'body-parser';
 
+// Import API Routes
 import Autos from './api/auto.api';
 
+// Create the App
 const app = express();
 
 // view engine setup
@@ -16,6 +18,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(expressValidator());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Establish Routes for API in the app
 app.use('/api/autos', Autos);
 
 // Other routes go above the get /*

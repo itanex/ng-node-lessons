@@ -23,12 +23,5 @@ namespace Lesson08.View.Auto {
                 return item.make.indexOf(this.filter) > -1;
             })
         }
-
-        /**
-         * Bindable input method to log something to the console
-         */
-        public showIndex(index: number): void {
-            console.log(`The index is: ${index}`);
-        }
     }
 }

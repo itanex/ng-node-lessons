@@ -1,5 +1,5 @@
-<form name="CarForm">
-    <div class="form-group" novalidate>
+<form name="CarForm" novalidate>
+    <div class="form-group">
         <label for="make">Make</label>
         <input type="text" class="form-control" id="make" name="AutoMake" placeholder="Make" ng-model="vm.auto.make" ng-required="true">
         <p class="help-block text-danger" ng-show="CarForm.AutoMake.$touched && CarForm.AutoMake.$error.required">Make is required</p>
