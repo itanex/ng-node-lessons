@@ -2,11 +2,6 @@ namespace Lesson09.View.Auto {
     export class EditRecordController {
         public auto: Models.Auto;
 
-        private _isCreate: boolean = true;
-        public get isCreate(): boolean {
-            return this._isCreate;
-        }
-
         constructor(
             private $state: ng.ui.IStateService,
             $stateParams: ng.ui.IStateParamsService,
@@ -14,18 +9,10 @@ namespace Lesson09.View.Auto {
         ) {
             let id = $stateParams['id'];
 
-            if (id) {
-                this._isCreate = false;
-                this.auto = this.AutoService.getAuto(id);
-            }
+            this.auto = this.AutoService.getAuto(id);
         }
 
         // event handlers
-
-        public create(): void {
-            this.AutoService.createAuto(this.auto);
-            this.$state.go('Auto');
-        }
 
         public update(): void {
             this.AutoService.updateAuto(this.auto);

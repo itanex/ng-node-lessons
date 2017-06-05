@@ -15,7 +15,6 @@
         <p class="help-block text-danger" ng-show="CarForm.AutoYear.$touched && CarForm.AutoYear.$error.required">Year is required</p>
         <p class="help-block text-danger" ng-show="CarForm.AutoYear.$touched && CarForm.AutoYear.$error.pattern">Year must be a number</p>
     </div>
-            <button ng-click="vm.create()" ng-if="vm.isCreate">Create</button>
-            <button ng-click="vm.update()">Update</button>
-            <button ng-click="vm.cancel()">Cancel</button>
+        <button ng-click="vm.create()">Create</button>
+        <button ng-click="vm.cancel()">Cancel</button>
 </form>

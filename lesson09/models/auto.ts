@@ -3,8 +3,6 @@ export interface IAuto  {
     make: string;
     model: string;
     year: number;
-
-    validate(): boolean;
 }
 
 export class Auto implements IAuto {
@@ -12,10 +10,6 @@ export class Auto implements IAuto {
     public make: string;
     public model: string;
     public year: number;
-
-    public validate(): boolean {
-        return false;
-    }
 }
 
 export let AutoValidationSchema: ExpressValidator.ValidationSchema = {
