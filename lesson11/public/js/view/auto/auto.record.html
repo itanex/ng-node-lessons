@@ -1,0 +1,15 @@
+<ul>
+    <li>
+        {{vm.auto.make}}
+    </li>
+    <li>
+        {{vm.auto.modelOfCar}}
+    </li>
+    <li>
+        {{vm.auto.year}}
+    </li>
+    <li>
+        <button ng-click="vm.editAuto(vm.auto._id)">Edit</button>
+        <button ng-click="vm.deleteAuto(vm.auto._id)">Delete</button>
+    </li>
+</ul>

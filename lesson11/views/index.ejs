@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+    <base href="/">
+    <title>Lesson 09</title>
+    <link rel="stylesheet" href="lib/angular/angular-csp.css">
+</head>
+
+<body ng-cloak>
+    <h1>Routing Lesson</h1>
+
+    <a ui-sref="Home">Home</a> | <a ui-sref="Auto">Auto</a>
+
+    <ui-view></ui-view>
+
+    <!--/* Third Party Modules */-->
+    <script src="lib/angular/angular.min.js"></script>
+    <script src="lib/angular-resource/angular-resource.min.js"></script>
+    <script src="lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="lib/angular-ui-router/release/stateEvents.min.js"></script>
+
+    <!--/* Application Modules */-->
+    <script src="js/models/auto.model.js"></script>
+
+    <script src="js/services/account.service.js"></script>
+    <script src="js/services/auto.service.js"></script>
+
+    <script src="js/view/auto/create.controller.js"></script>
+    <script src="js/view/auto/edit.controller.js"></script>
+    <script src="js/view/auto/record.controller.js"></script>
+    <script src="js/view/auto/auto.controller.js"></script>
+    <script src="js/view/auto/auto.config.js"></script>
+    <script src="js/view/auto/auto.js"></script>
+
+    <script src="js/view/home/home.controller.js"></script>
+    <script src="js/view/home/home.config.js"></script>
+    <script src="js/view/home/home.js"></script>
+
+    <script src="js/view/view.js"></script>
+
+    <script src="js/app.config.js"></script>
+    <script src="js/app.run.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
