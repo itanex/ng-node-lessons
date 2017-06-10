@@ -29,7 +29,7 @@ passport.use('local', new LocalStrategy(function (username, password, done) {
         }
 
         if (!user) {
-            return done(null, false, { message: 'Unknown User' });
+            return done(null, false, { message: 'Username/Password is incorrect.' });
         }
 
         if (!user.validatePassword(password)) {

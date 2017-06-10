@@ -20,12 +20,12 @@ namespace Lesson11.Services {
                     "Authorization": `Bearer ${this.AccountService.AuthenticationToken}`
                 }
             })
-                .then(() => {
-                    return true;
-                })
-                .catch(() => {
-                    return false;
-                });
+	        .then(() => {
+	            return true;
+	        })
+	        .catch(() => {
+	            return false;
+	        });
         }
     }
 }
