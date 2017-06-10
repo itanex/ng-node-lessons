@@ -17,7 +17,6 @@ namespace Lesson11.Services {
         }
 
         private setItem(key: string, data: any): void {
-            debugger;
             this.$window.sessionStorage.setItem(key, JSON.stringify(data));
         }
 

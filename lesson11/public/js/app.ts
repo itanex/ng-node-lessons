@@ -15,5 +15,7 @@ namespace Lesson11 {
     module.service('AccountService', Lesson11.Services.AccountService);
     module.service('AutoService', Lesson11.Services.AutoService);
 
+    module.controller('ApplicationController', Lesson11.ApplicationController);
+
     module.run(Lesson11.Run);
 }

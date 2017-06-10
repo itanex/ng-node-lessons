@@ -10,8 +10,17 @@
 <body ng-cloak>
     <h1>Routing Lesson</h1>
 
-    <a ui-sref="Home">Home</a> | <a ui-sref="Auto">Auto</a> |
-    <a ui-sref="Register">Register</a> | <a ui-sref="Login">Login</a>
+    <div ng-controller="ApplicationController as vm">
+        <a ui-sref="Home">Home</a> 
+        <span ng-if="vm.isAuthenticated">
+            | <a ui-sref="Auto">Auto</a>
+            | <a href ng-click="vm.logout()">Logout</a>
+        </span>
+        <span ng-if="!vm.isAuthenticated">
+            | <a ui-sref="Register">Register</a> 
+            | <a ui-sref="Login">Login</a>
+        </span>
+    </div>
 
     <ui-view></ui-view>
 
@@ -31,7 +40,7 @@
     <script src="js/view/account/register.controller.js"></script>
     <script src="js/view/account/login.controller.js"></script>
     <script src="js/view/account/account.config.js"></script>
-    <script src="js/view/account/account.js"></script>    
+    <script src="js/view/account/account.js"></script>
 
     <script src="js/view/auto/create.controller.js"></script>
     <script src="js/view/auto/edit.controller.js"></script>
@@ -46,6 +55,7 @@
 
     <script src="js/view/view.js"></script>
 
+    <script src="js/app.controller.js"></script>
     <script src="js/app.config.js"></script>
     <script src="js/app.run.js"></script>
     <script src="js/app.js"></script>
