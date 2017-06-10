@@ -12,7 +12,7 @@ Authentication is a simple concept, each user has set of unique credentials and 
 
 > **For the purpose of this lesson**
 >
-> HTTP will not be used. The lesson will focus on the practices that need to take place in code.
+> HTTPS will not be used. The lesson will focus on the practices that need to take place in code.
 
 ## NodeJS Modules
 
