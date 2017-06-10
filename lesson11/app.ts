@@ -7,14 +7,12 @@ import * as passport from 'passport';
 
 import { AuthenticationHandler } from './authentication/authenticate'
 
-const expressJwt = require('express-jwt');  
-const authenticate = expressJwt({secret : 'SecretKey'});
-
 // Passport Configuration
 require('./authentication/authentication.passport');
 
 // Import API Routes
 import Autos from './api/auto.api';
+import Users from './api/users.api';
 
 // Create the App
 const app = express();
@@ -44,10 +42,11 @@ app.use(passport.session());
 
 // Establish Routes for API in the app
 app.use('/api/autos', Autos);
+app.use('/api/users', Users);
 
-// Secured Endpoint
+// Secured Endpoint Example
 app.get('/profile', AuthenticationHandler, (req, res, next) => {
-    res.status(200).send("Your profile SUCKS!");
+    res.status(200).send("This is a profile API");
 });
 
 // Other routes go above the get /*

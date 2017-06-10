@@ -15,10 +15,10 @@ namespace Lesson11.Views.Account {
         }
 
         public login(): void {
-            this.AccountService.loginUser(this.user)
+            this.AccountService.login(this.user)
                 .then((result) => {
                     if (result) {
-                        this.$state.go('Home');
+                        this.$state.go('Auto');
                     }
                 });
         }

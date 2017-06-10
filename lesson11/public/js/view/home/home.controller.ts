@@ -13,13 +13,5 @@ namespace Lesson11.View.Home {
         }
 
         // event handlers
-
-        public logUserIn(): void {
-            this.AccountService.logUserIn();
-        }
-
-        public logUserOut(): void {
-            this.AccountService.logUserOut();
-        }
     }
 }

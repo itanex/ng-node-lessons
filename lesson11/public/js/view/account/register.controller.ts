@@ -15,9 +15,9 @@ namespace Lesson11.Views.Account {
         }
 
         public register(): void {
-            this.AccountService.registerUser(this.user)
+            this.AccountService.register(this.user)
                 .then(()=>{
-                    this.$state.go('Home');
+                    this.$state.go('Login');
                 });
         }
     }

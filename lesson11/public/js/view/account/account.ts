@@ -1,5 +1,5 @@
 namespace Lesson11.Views.Account {
-    let module: ng.IModule = angular.module('account.view', []);
+    let module: ng.IModule = angular.module('view.account', []);
 
     module.config(Account.Configuration);
     

@@ -17,6 +17,7 @@ namespace Lesson11.Services {
         }
 
         private setItem(key: string, data: any): void {
+            debugger;
             this.$window.sessionStorage.setItem(key, JSON.stringify(data));
         }
 
@@ -43,21 +44,21 @@ namespace Lesson11.Services {
             this.$http.post('/api/users/logout', null);
         }
 
-        public loginUser(user: Models.LoginUser): ng.IPromise<boolean> {
+        public login(user: Models.LoginUser): ng.IPromise<boolean> {
             return this.$http.post<any>('/api/users/login', user)
                 .then((result) => {
                     if (result.status === 200) {
-                        let user = new Models.User();
-                        user.username = result.data.username;
-                        user.email = result.data.email;
+                        let authUser = new Models.User();
+                        authUser.username = result.data.username;
+                        authUser.email = result.data.email;
 
-                        this.setItem('user', user);
+                        this.setItem('user', authUser);
                         this.setItem('authtoken', result.data.token);
                         this.setItem('authenticated', true);
 
                         return true;
-
                     }
+                    
                     return false;
                 })
                 .catch(() => {
@@ -65,7 +66,7 @@ namespace Lesson11.Services {
                 });
         }
 
-        public registerUser(user: Models.RegisterUser): ng.IPromise<boolean> {
+        public register(user: Models.RegisterUser): ng.IPromise<boolean> {
             return this.$http.post('/api/users/register', user)
                 .then((result) => {
                     return true;

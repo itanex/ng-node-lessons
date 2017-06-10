@@ -10,7 +10,8 @@
 <body ng-cloak>
     <h1>Routing Lesson</h1>
 
-    <a ui-sref="Home">Home</a> | <a ui-sref="Auto">Auto</a>
+    <a ui-sref="Home">Home</a> | <a ui-sref="Auto">Auto</a> |
+    <a ui-sref="Register">Register</a> | <a ui-sref="Login">Login</a>
 
     <ui-view></ui-view>
 
@@ -22,9 +23,15 @@
 
     <!--/* Application Modules */-->
     <script src="js/models/auto.model.js"></script>
+    <script src="js/models/user.model.js"></script>
 
     <script src="js/services/account.service.js"></script>
     <script src="js/services/auto.service.js"></script>
+
+    <script src="js/view/account/register.controller.js"></script>
+    <script src="js/view/account/login.controller.js"></script>
+    <script src="js/view/account/account.config.js"></script>
+    <script src="js/view/account/account.js"></script>    
 
     <script src="js/view/auto/create.controller.js"></script>
     <script src="js/view/auto/edit.controller.js"></script>
